@@ -10,3 +10,6 @@
 # http://docs.puppetlabs.com/guides/tests_smoke.html
 #
 include aws
+
+$has_role = has_tagged_role('name', 'aws_demo')
+notify { "has role ${has_role}": }
