@@ -13,3 +13,6 @@ include aws
 
 $has_role = has_tagged_role('name', 'aws_demo')
 notify { "has role ${has_role}": }
+
+$value = get_tag('name')
+notify { "the name tag is ${value}": }
