@@ -11,6 +11,36 @@ Requirements:
 Why not fog? 
   Fog is a pain on Ruby 1.8.7 which is what we've got on the various RedHat family OS.
 
+Facts
+-----
+
+Any AWS tags will become facter facts. For example if an instance has the following tags:
+
+    Name = aws_demo
+    Roles = web,db,monitor
+
+The instance will have the following facts:
+
+    ec2_tag_name  => aws_demo
+    ec2_tag_roles => web,db,monitor
+
+Functions
+---------
+
+`has_tagged_role` is a function that can be used to classify nodes based on roles they've
+been tagged with. Assuming the facts above its usage could be:
+
+    if has_tagged_role('roles', 'web') {
+      notify { "has the role web": }
+    } else {
+      notify { "doesn't have the role web": }
+    }
+
+The expected output would be:
+
+    Notice: has the role web
+    Notice: /Stage[main]//Notify[has the role web]/message: defined 'message' as 'has the role web'
+
 IAM Roles
 ---------
 
