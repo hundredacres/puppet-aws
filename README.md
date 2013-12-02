@@ -1,4 +1,5 @@
 aws
+---
 
 Puppet helpers for AWS. 
 
@@ -43,4 +44,4 @@ Chad Metcalf <metcalfc@gmail.com>
 Support
 -------
 
-Please log tickets and issues at our [Github site](http://github.com/metcalfc/puppet-aws).
+Please log tickets and issues at our [Github site](http://github.com/metcalfc/puppet-aws/issues).
