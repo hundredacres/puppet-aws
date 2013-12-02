@@ -41,6 +41,16 @@ The expected output would be:
     Notice: has the role web
     Notice: /Stage[main]//Notify[has the role web]/message: defined 'message' as 'has the role web'
 
+`get_tag` is a helper function that simply takes care of the annoying ec2\_tag\_\* prefix.
+
+    $value = get_tag('name')
+    notify { "the name tag is ${value}": }
+
+The expected output would be:
+
+    Notice: the name tag is aws_demo
+    Notice: /Stage[main]//Notify[the name tag is aws_demo]/message: defined 'message' as 'the name tag is aws_demo'
+
 IAM Roles
 ---------
 
