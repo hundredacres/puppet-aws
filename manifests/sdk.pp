@@ -14,23 +14,23 @@ class aws::sdk {
     class { 'ruby':
       rubygems_update => false
     }
-
-    package { 'nokogiri':
-      ensure   => ['1.5.6'],
-      provider => 'gem',
-    } ->
-    package { 'json':
-      ensure   => ['1.4.6'],
-      provider => 'gem',
-    } ->
-    package { 'uuidtools':
-      ensure   => ['2.1.1'],
-      provider => 'gem',
-    } ->
-    package { 'aws-sdk':
-      ensure   => ['1.26.0'],
-      provider => 'gem',
-    }
+    ensure_packages('nokogiri', 'json', 'uuidtools', 'aws-sdk' { 'provider' => 'gem'})
+    #package { 'nokogiri':
+    #  ensure   => ['1.5.6'],
+    #  provider => 'gem',
+    #} ->
+    #package { 'json':
+    #  ensure   => ['1.4.6'],
+    #  provider => 'gem',
+    #} ->
+    #package { 'uuidtools':
+    #  ensure   => ['2.1.1'],
+    #  provider => 'gem',
+    #} ->
+    #package { 'aws-sdk':
+    #  ensure   => ['1.26.0'],
+    #  provider => 'gem',
+    #}
 
   }
 
